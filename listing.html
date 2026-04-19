@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#e11d2a" />
+<title>Tìm nhà đất — Nhadat247.vn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="assets/shared.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=line-clamp,forms"></script>
+<style>.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:9999px;background:#e11d2a;cursor:pointer}</style>
+<style type="text/tailwindcss">
+  .chip{ @apply px-3 py-1.5 rounded-full bg-white ring-1 ring-slate-200 hover:bg-primary-50 hover:text-primary-700 hover:ring-primary-200 text-ink-600 text-xs font-medium whitespace-nowrap transition cursor-pointer; }
+  .chip-active{ @apply bg-primary-50 text-primary-700 ring-primary-200; }
+</style>
+</head>
+<body class="font-sans bg-slate-50/60 text-ink-800 antialiased">
+
+<div id="app-header"></div>
+
+<!-- Page breadcrumb + sub hero -->
+<section class="bg-white border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center gap-2 text-xs text-ink-500">
+      <a href="index.html" class="hover:text-primary-600">Trang chủ</a>
+      <span>›</span>
+      <span>Nhà đất bán</span>
+      <span>›</span>
+      <span class="text-ink-800 font-medium">TP. Hồ Chí Minh</span>
+    </div>
+    <h1 class="mt-2 font-display font-extrabold text-2xl sm:text-3xl text-ink-900">Nhà đất bán tại TP. Hồ Chí Minh</h1>
+    <p class="text-sm text-ink-500 mt-1">Hiện có <b class="text-primary-600">128.492 tin đăng</b> — cập nhật trong 24 giờ qua</p>
+  </div>
+</section>
+
+<!-- Search bar -->
+<section class="bg-white border-b border-slate-200 sticky top-16 z-30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
+      <div class="flex-1 flex items-center bg-slate-100 rounded-xl px-3 py-2 min-w-[200px]">
+        <span class="text-ink-400"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <input class="bg-transparent w-full pl-2 text-sm outline-none" placeholder="Tìm theo tên đường, quận, dự án..."/>
+      </div>
+      <select class="hidden sm:block bg-slate-100 rounded-xl px-3 py-2.5 text-sm text-ink-700 outline-none">
+        <option>Loại BĐS</option><option>Căn hộ</option><option>Nhà phố</option><option>Biệt thự</option><option>Đất nền</option>
+      </select>
+      <select class="hidden sm:block bg-slate-100 rounded-xl px-3 py-2.5 text-sm text-ink-700 outline-none">
+        <option>Mức giá</option><option>Dưới 1 tỷ</option><option>1-3 tỷ</option><option>3-5 tỷ</option><option>5-10 tỷ</option><option>&gt; 10 tỷ</option>
+      </select>
+      <select class="hidden sm:block bg-slate-100 rounded-xl px-3 py-2.5 text-sm text-ink-700 outline-none">
+        <option>Diện tích</option><option>&lt; 50m²</option><option>50-100m²</option><option>100-200m²</option><option>&gt; 200m²</option>
+      </select>
+      <button id="openFilter" class="lg:hidden inline-flex items-center gap-1 px-3 py-2.5 rounded-xl bg-primary-600 text-white text-sm font-semibold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 3H2l8 9.5V19l4 2v-8.5Z"/></svg>
+        Lọc
+      </button>
+      <button class="hidden sm:inline-flex px-4 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold">Tìm kiếm</button>
+    </div>
+    <!-- quick chips -->
+    <div class="mt-2 flex items-center gap-2 overflow-x-auto no-scrollbar">
+      <span class="chip chip-active">Tất cả</span>
+      <span class="chip">Căn hộ</span>
+      <span class="chip">Nhà phố</span>
+      <span class="chip">Biệt thự</span>
+      <span class="chip">Đất nền</span>
+      <span class="chip">Có sổ đỏ</span>
+      <span class="chip">Nội thất đầy đủ</span>
+      <span class="chip">Chính chủ</span>
+      <span class="chip">Hỗ trợ vay</span>
+    </div>
+  </div>
+</section>
+
+<!-- Main -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <div class="grid lg:grid-cols-12 gap-6">
+
+    <!-- Sidebar filter (desktop) -->
+    <aside class="hidden lg:block lg:col-span-3">
+      <div class="sticky top-40 space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-soft">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-extrabold text-ink-900">Bộ lọc tìm kiếm</h3>
+            <button class="text-xs text-primary-600 font-semibold hover:underline">Xoá</button>
+          </div>
+          <!-- Price range -->
+          <div class="mt-4">
+            <label class="text-xs font-semibold text-ink-600 uppercase">Khoảng giá</label>
+            <div class="mt-2 flex items-center gap-2">
+              <input class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none" placeholder="Từ"/>
+              <span class="text-ink-400">—</span>
+              <input class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none" placeholder="Đến"/>
+            </div>
+            <input type="range" min="0" max="30" value="10" class="w-full mt-3 accent-primary-600"/>
+            <div class="flex justify-between text-xs text-ink-500 mt-1"><span>0</span><span>30 tỷ+</span></div>
+          </div>
+
+          <!-- Area -->
+          <div class="mt-5">
+            <label class="text-xs font-semibold text-ink-600 uppercase">Diện tích (m²)</label>
+            <div class="mt-2 grid grid-cols-3 gap-1.5">
+              <button class="text-xs py-1.5 rounded-lg bg-primary-50 text-primary-700 ring-1 ring-primary-200">Tất cả</button>
+              <button class="text-xs py-1.5 rounded-lg hover:bg-slate-100">&lt;50</button>
+              <button class="text-xs py-1.5 rounded-lg hover:bg-slate-100">50–100</button>
+              <button class="text-xs py-1.5 rounded-lg hover:bg-slate-100">100–200</button>
+              <button class="text-xs py-1.5 rounded-lg hover:bg-slate-100">200–500</button>
+              <button class="text-xs py-1.5 rounded-lg hover:bg-slate-100">&gt;500</button>
+            </div>
+          </div>
+
+          <!-- Bedrooms -->
+          <div class="mt-5">
+            <label class="text-xs font-semibold text-ink-600 uppercase">Số phòng ngủ</label>
+            <div class="mt-2 flex gap-1.5">
+              <button class="flex-1 text-xs py-1.5 rounded-lg bg-primary-50 text-primary-700 ring-1 ring-primary-200">Bất kỳ</button>
+              <button class="flex-1 text-xs py-1.5 rounded-lg hover:bg-slate-100">1+</button>
+              <button class="flex-1 text-xs py-1.5 rounded-lg hover:bg-slate-100">2+</button>
+              <button class="flex-1 text-xs py-1.5 rounded-lg hover:bg-slate-100">3+</button>
+              <button class="flex-1 text-xs py-1.5 rounded-lg hover:bg-slate-100">4+</button>
+            </div>
+          </div>
+
+          <!-- Direction -->
+          <div class="mt-5">
+            <label class="text-xs font-semibold text-ink-600 uppercase">Hướng nhà</label>
+            <div class="mt-2 grid grid-cols-4 gap-1.5 text-xs">
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">Đông</button>
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">Tây</button>
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">Nam</button>
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">Bắc</button>
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">ĐB</button>
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">ĐN</button>
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">TB</button>
+              <button class="py-1.5 rounded-lg hover:bg-slate-100">TN</button>
+            </div>
+          </div>
+
+          <!-- Extras -->
+          <div class="mt-5 space-y-2 text-sm">
+            <label class="flex items-center gap-2"><input type="checkbox" class="rounded text-primary-600"/> Đã có sổ đỏ</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="rounded text-primary-600"/> Chính chủ</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="rounded text-primary-600"/> Nội thất đầy đủ</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="rounded text-primary-600"/> Hỗ trợ vay ngân hàng</label>
+          </div>
+
+          <button class="mt-6 w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl py-3 shadow-pop">Áp dụng bộ lọc</button>
+        </div>
+
+        <!-- Map preview card -->
+        <div class="rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-white shadow-soft">
+          <div class="aspect-[4/3] bg-slate-200 relative">
+            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800" class="w-full h-full object-cover" alt="map"/>
+            <div class="absolute inset-0 bg-primary-900/10"></div>
+            <button class="absolute inset-x-4 bottom-4 bg-white text-primary-700 font-semibold py-2.5 rounded-xl shadow hover:bg-primary-600 hover:text-white transition">Xem trên bản đồ</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Result list -->
+    <div class="lg:col-span-9">
+      <!-- Sort bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div class="text-sm text-ink-600"><b class="text-ink-900">128.492</b> tin đăng</div>
+        <div class="flex items-center gap-2">
+          <div class="hidden sm:flex items-center gap-1 bg-white ring-1 ring-slate-200 rounded-lg p-1">
+            <button class="viewBtn p-1.5 rounded-md bg-primary-50 text-primary-700" data-view="grid" aria-label="Grid">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </button>
+            <button class="viewBtn p-1.5 rounded-md text-ink-500 hover:bg-slate-100" data-view="list" aria-label="List">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            </button>
+          </div>
+          <select class="bg-white ring-1 ring-slate-200 rounded-xl px-3 py-2 text-sm text-ink-700 outline-none">
+            <option>Mặc định</option>
+            <option>Mới nhất</option>
+            <option>Giá thấp → cao</option>
+            <option>Giá cao → thấp</option>
+            <option>Diện tích lớn nhất</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="results" class="grid sm:grid-cols-2 gap-4"></div>
+
+      <!-- Pagination -->
+      <nav class="mt-8 flex items-center justify-center gap-1.5">
+        <button class="w-10 h-10 rounded-lg bg-white ring-1 ring-slate-200 text-ink-600 hover:bg-primary-50 hover:text-primary-700 grid place-items-center">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="w-10 h-10 rounded-lg bg-primary-600 text-white font-semibold">1</button>
+        <button class="w-10 h-10 rounded-lg bg-white ring-1 ring-slate-200 text-ink-700 hover:bg-primary-50">2</button>
+        <button class="w-10 h-10 rounded-lg bg-white ring-1 ring-slate-200 text-ink-700 hover:bg-primary-50">3</button>
+        <span class="w-10 h-10 grid place-items-center text-ink-500">…</span>
+        <button class="w-10 h-10 rounded-lg bg-white ring-1 ring-slate-200 text-ink-700 hover:bg-primary-50">128</button>
+        <button class="w-10 h-10 rounded-lg bg-white ring-1 ring-slate-200 text-ink-600 hover:bg-primary-50 hover:text-primary-700 grid place-items-center">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </nav>
+
+      <!-- SEO block -->
+      <div class="mt-10 bg-white rounded-2xl p-6 ring-1 ring-slate-200">
+        <h2 class="font-display font-extrabold text-lg text-ink-900">Tổng quan thị trường nhà đất TP. Hồ Chí Minh</h2>
+        <p class="mt-2 text-sm text-ink-600 leading-relaxed">Thị trường TP.HCM ghi nhận sự phục hồi rõ rệt trong quý 1/2026, phân khúc căn hộ trung cấp tiếp tục dẫn dắt nguồn cung. Giá trung bình tại các quận trung tâm đang dao động quanh mức 85–120 triệu/m², trong khi các khu vực vùng ven như Bình Chánh, Nhà Bè, Củ Chi có mức giá hấp dẫn 32–60 triệu/m² — phù hợp cho người mua ở thật và nhà đầu tư trung-dài hạn.</p>
+        <div class="grid sm:grid-cols-3 gap-3 mt-4">
+          <div class="p-4 rounded-xl bg-primary-50"><div class="text-xs text-primary-700 font-semibold">Giá TB căn hộ</div><div class="text-xl font-display font-extrabold text-primary-700 mt-1">78 tr/m²</div><div class="text-[11px] text-primary-700/80">+4.2% so với quý trước</div></div>
+          <div class="p-4 rounded-xl bg-emerald-50"><div class="text-xs text-emerald-700 font-semibold">Giá TB nhà phố</div><div class="text-xl font-display font-extrabold text-emerald-700 mt-1">142 tr/m²</div><div class="text-[11px] text-emerald-700/80">+2.1% so với quý trước</div></div>
+          <div class="p-4 rounded-xl bg-sky-50"><div class="text-xs text-sky-700 font-semibold">Giao dịch thành công</div><div class="text-xl font-display font-extrabold text-sky-700 mt-1">8.214</div><div class="text-[11px] text-sky-700/80">Trong 30 ngày gần nhất</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Mobile filter drawer -->
+<div id="filterDrawer" class="fixed inset-0 z-50 hidden lg:hidden">
+  <div class="absolute inset-0 bg-black/50" id="filterBackdrop"></div>
+  <aside class="absolute bottom-0 inset-x-0 bg-white rounded-t-3xl max-h-[90vh] flex flex-col">
+    <div class="flex items-center justify-between px-5 py-3 border-b">
+      <div class="font-display font-extrabold">Bộ lọc</div>
+      <button id="filterClose" class="w-8 h-8 grid place-items-center rounded-lg hover:bg-slate-100">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="p-5 overflow-y-auto flex-1 space-y-5">
+      <div><label class="text-xs font-semibold text-ink-600 uppercase">Khoảng giá</label>
+        <div class="mt-2 grid grid-cols-2 gap-2">
+          <input class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm outline-none" placeholder="Từ"/>
+          <input class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm outline-none" placeholder="Đến"/>
+        </div>
+      </div>
+      <div><label class="text-xs font-semibold text-ink-600 uppercase">Diện tích</label>
+        <div class="mt-2 grid grid-cols-3 gap-2 text-sm">
+          <button class="py-2 rounded-lg bg-primary-50 text-primary-700 ring-1 ring-primary-200">Tất cả</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">&lt;50m²</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">50–100</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">100–200</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">200–500</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">&gt;500</button>
+        </div>
+      </div>
+      <div><label class="text-xs font-semibold text-ink-600 uppercase">Số phòng ngủ</label>
+        <div class="mt-2 grid grid-cols-5 gap-2 text-sm">
+          <button class="py-2 rounded-lg bg-primary-50 text-primary-700 ring-1 ring-primary-200">Bất kỳ</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">1+</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">2+</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">3+</button>
+          <button class="py-2 rounded-lg hover:bg-slate-100 ring-1 ring-slate-200">4+</button>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 border-t flex gap-2">
+      <button class="flex-1 py-3 rounded-xl ring-1 ring-slate-300 text-ink-700 font-semibold">Xoá</button>
+      <button class="flex-1 py-3 rounded-xl bg-primary-600 text-white font-semibold">Xem 128.492 kết quả</button>
+    </div>
+  </aside>
+</div>
+
+<div id="app-footer"></div>
+<div id="app-mobilenav"></div>
+
+<script>
+mountShared({ active: 'buy' });
+
+// Duplicate sample data to fill the grid
+const LIST = [...SAMPLE_LISTINGS, ...SAMPLE_LISTINGS].map((x,i)=>({...x, id:i+1}));
+
+const results = document.getElementById('results');
+let view = 'grid';
+
+function card(l) {
+  if (view === 'grid') {
+    return `
+      <a href="detail.html" class="group rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 shadow-soft hover:shadow-card hover:-translate-y-0.5 transition flex flex-col">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="${l.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="">
+          <div class="absolute top-3 left-3 flex gap-1.5">
+            ${l.hot ? `<span class="px-2 py-0.5 rounded bg-primary-600 text-white text-[10px] font-bold flex items-center gap-1">${ic.zap}HOT</span>`:''}
+            ${l.vip ? `<span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-bold">VIP</span>`:''}
+          </div>
+          <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 grid place-items-center text-ink-600 hover:text-primary-600">${ic.heart}</button>
+          <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-black/60 backdrop-blur">${l.type}</span>
+            <span class="px-2 py-0.5 rounded bg-black/60 backdrop-blur flex items-center gap-1">${ic.eye} 2.4K</span>
+          </div>
+        </div>
+        <div class="p-3.5 flex-1 flex flex-col">
+          <h3 class="font-semibold text-ink-900 line-clamp-2 text-[15px] leading-snug">${l.title}</h3>
+          <div class="mt-1 text-primary-600 font-display font-extrabold text-lg">${fmt.vnd(l.price)} <span class="text-xs text-ink-400 font-medium">· ${Math.round(l.price/l.area/1e6)} tr/m²</span></div>
+          <div class="flex items-center gap-3 text-[12px] text-ink-500 mt-1">
+            <span class="flex items-center gap-1">${ic.area}${l.area}m²</span>
+            ${l.bed ? `<span class="flex items-center gap-1">${ic.bed}${l.bed}PN</span>`:''}
+            ${l.bath ? `<span class="flex items-center gap-1">${ic.bath}${l.bath}WC</span>`:''}
+          </div>
+          <div class="mt-2 flex items-center text-[12px] text-ink-500 gap-1 line-clamp-1">${ic.pin}${l.addr}</div>
+          <div class="mt-auto pt-3 flex items-center justify-between">
+            <span class="text-[11px] text-ink-400">${l.postedAt}</span>
+            ${l.verified ? `<span class="flex items-center gap-1 text-[11px] text-emerald-600 font-semibold">${ic.check} Xác thực</span>`:''}
+          </div>
+        </div>
+      </a>`;
+  }
+  // list view
+  return `
+    <a href="detail.html" class="sm:col-span-2 flex gap-4 p-3 rounded-2xl bg-white ring-1 ring-slate-200 hover:shadow-card transition">
+      <div class="relative w-36 sm:w-52 aspect-[4/3] rounded-xl overflow-hidden shrink-0">
+        <img src="${l.img}" class="w-full h-full object-cover"/>
+        ${l.vip?`<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-bold">VIP</span>`:''}
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-semibold text-ink-900 line-clamp-2 leading-snug">${l.title}</h3>
+        <div class="mt-1 text-primary-600 font-display font-extrabold text-lg">${fmt.vnd(l.price)}</div>
+        <div class="flex flex-wrap items-center gap-3 text-[12px] text-ink-500 mt-1">
+          <span class="flex items-center gap-1">${ic.area}${l.area}m²</span>
+          ${l.bed ? `<span class="flex items-center gap-1">${ic.bed}${l.bed}PN</span>`:''}
+          ${l.bath ? `<span class="flex items-center gap-1">${ic.bath}${l.bath}WC</span>`:''}
+          <span class="flex items-center gap-1">${ic.pin}${l.addr}</span>
+        </div>
+        <div class="mt-2 hidden sm:block text-[12px] text-ink-500 line-clamp-2">Căn hộ view sông, nội thất đầy đủ, vị trí đắc địa, giao dịch nhanh. Chính chủ cần bán gấp trong tháng này.</div>
+        <div class="mt-2 flex items-center justify-between">
+          <span class="text-[11px] text-ink-400">${l.postedAt}</span>
+          <button class="text-xs font-semibold text-primary-600 hover:underline">Liên hệ →</button>
+        </div>
+      </div>
+    </a>`;
+}
+
+function render() {
+  results.className = view === 'grid' ? 'grid sm:grid-cols-2 xl:grid-cols-3 gap-4' : 'grid gap-3';
+  results.innerHTML = LIST.map(card).join('');
+}
+render();
+
+document.querySelectorAll('.viewBtn').forEach(b => {
+  b.addEventListener('click', () => {
+    view = b.dataset.view;
+    document.querySelectorAll('.viewBtn').forEach(x => x.className = 'viewBtn p-1.5 rounded-md text-ink-500 hover:bg-slate-100');
+    b.className = 'viewBtn p-1.5 rounded-md bg-primary-50 text-primary-700';
+    render();
+  });
+});
+
+// chip toggle
+document.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('chip-active'));
+  ch.classList.add('chip-active');
+}));
+
+// mobile filter
+const filter = document.getElementById('filterDrawer');
+document.getElementById('openFilter')?.addEventListener('click', () => filter.classList.remove('hidden'));
+document.getElementById('filterClose')?.addEventListener('click', () => filter.classList.add('hidden'));
+document.getElementById('filterBackdrop')?.addEventListener('click', () => filter.classList.add('hidden'));
+</script>
+</body>
+</html>

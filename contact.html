@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#e11d2a" />
+<title>Liên hệ — Nhadat247.vn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="assets/shared.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=line-clamp,forms"></script>
+<style type="text/tailwindcss">
+  input[type=text], input[type=email], input[type=tel], textarea, select {
+    @apply w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm outline-none transition focus:ring-2 focus:ring-primary-200 focus:border-primary-400;
+  }
+  .label{ @apply block text-sm font-semibold text-ink-800 mb-1.5; }
+</style>
+</head>
+<body class="font-sans bg-slate-50/60 text-ink-800 antialiased">
+
+<div id="app-header"></div>
+
+<!-- Hero -->
+<section class="bg-gradient-to-br from-primary-50 via-white to-white border-b border-primary-100/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 text-center">
+    <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-100 text-primary-700 text-xs font-semibold">Chúng tôi luôn ở đây</span>
+    <h1 class="mt-3 font-display font-extrabold text-3xl sm:text-5xl text-ink-900">Bạn cần giúp gì hôm nay?</h1>
+    <p class="mt-3 text-ink-600 max-w-xl mx-auto">Đội ngũ Nhadat247 hỗ trợ 24/7 qua hotline, chat, email. Thời gian phản hồi trung bình dưới <b class="text-primary-600">3 phút</b>.</p>
+  </div>
+</section>
+
+<!-- Channels -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 lg:-mt-12">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <a href="tel:1900247247" class="bg-white rounded-2xl ring-1 ring-slate-200 hover:ring-primary-300 hover:-translate-y-1 transition shadow-soft p-5">
+      <div class="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 grid place-items-center"><i data-ic="phone"></i></div>
+      <div class="mt-3 text-xs text-ink-500 font-semibold uppercase">Hotline</div>
+      <div class="font-display font-extrabold text-xl text-ink-900 mt-0.5">1900 247 247</div>
+      <div class="text-xs text-ink-500 mt-1">Hoạt động 24/7</div>
+    </a>
+    <a href="mailto:hotro@nhadat247.vn" class="bg-white rounded-2xl ring-1 ring-slate-200 hover:ring-primary-300 hover:-translate-y-1 transition shadow-soft p-5">
+      <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 grid place-items-center"><i data-ic="mail"></i></div>
+      <div class="mt-3 text-xs text-ink-500 font-semibold uppercase">Email hỗ trợ</div>
+      <div class="font-display font-extrabold text-lg text-ink-900 mt-0.5">hotro@nhadat247.vn</div>
+      <div class="text-xs text-ink-500 mt-1">Phản hồi trong 4 giờ</div>
+    </a>
+    <a href="#" class="bg-white rounded-2xl ring-1 ring-slate-200 hover:ring-primary-300 hover:-translate-y-1 transition shadow-soft p-5">
+      <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 grid place-items-center"><i data-ic="msg"></i></div>
+      <div class="mt-3 text-xs text-ink-500 font-semibold uppercase">Chat trực tuyến</div>
+      <div class="font-display font-extrabold text-lg text-ink-900 mt-0.5">Zalo / Messenger</div>
+      <div class="text-xs text-ink-500 mt-1">Đang có tư vấn viên online</div>
+    </a>
+    <a href="#" class="bg-white rounded-2xl ring-1 ring-slate-200 hover:ring-primary-300 hover:-translate-y-1 transition shadow-soft p-5">
+      <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 grid place-items-center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="mt-3 text-xs text-ink-500 font-semibold uppercase">Văn phòng</div>
+      <div class="font-display font-extrabold text-lg text-ink-900 mt-0.5">T2 – T7: 8:00 – 18:00</div>
+      <div class="text-xs text-ink-500 mt-1">CN: 9:00 – 12:00</div>
+    </a>
+  </div>
+</section>
+
+<!-- Form + Info -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid lg:grid-cols-5 gap-6">
+  <div class="lg:col-span-3 bg-white rounded-2xl ring-1 ring-slate-200 shadow-soft p-6 sm:p-8">
+    <h2 class="font-display font-extrabold text-2xl text-ink-900">Gửi lời nhắn cho chúng tôi</h2>
+    <p class="text-sm text-ink-500 mt-1">Điền thông tin — đội ngũ CSKH sẽ liên hệ bạn trong 24 giờ.</p>
+    <form class="mt-5 grid sm:grid-cols-2 gap-4">
+      <div><label class="label">Họ và tên *</label><input placeholder="Nguyễn Văn A"/></div>
+      <div><label class="label">Số điện thoại *</label><input placeholder="09xx xxx xxx"/></div>
+      <div class="sm:col-span-2"><label class="label">Email</label><input type="email" placeholder="email@vidu.vn"/></div>
+      <div class="sm:col-span-2">
+        <label class="label">Chủ đề</label>
+        <select>
+          <option>Tư vấn mua/bán BĐS</option>
+          <option>Hỗ trợ đăng tin</option>
+          <option>Khiếu nại / báo tin sai</option>
+          <option>Hợp tác kinh doanh</option>
+          <option>Khác</option>
+        </select>
+      </div>
+      <div class="sm:col-span-2"><label class="label">Nội dung *</label><textarea rows="5" placeholder="Mô tả ngắn gọn vấn đề bạn cần hỗ trợ..."></textarea></div>
+      <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <label class="flex items-center gap-2 text-sm text-ink-600"><input type="checkbox" class="rounded text-primary-600" checked/> Tôi đồng ý với <a href="#" class="text-primary-600 font-semibold">chính sách bảo mật</a></label>
+        <button class="px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold shadow-pop">Gửi lời nhắn</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="lg:col-span-2 space-y-4">
+    <div class="bg-white rounded-2xl ring-1 ring-slate-200 overflow-hidden shadow-soft">
+      <div class="aspect-[16/10] bg-slate-200 relative">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200" class="w-full h-full object-cover" alt="map"/>
+        <div class="absolute inset-0 bg-primary-900/10"></div>
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div class="relative">
+            <div class="w-14 h-14 rounded-full bg-primary-600/30 animate-ping"></div>
+            <div class="absolute inset-0 grid place-items-center">
+              <span class="w-10 h-10 rounded-full bg-primary-600 text-white grid place-items-center shadow-pop"><i data-ic="pin"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-5">
+        <h3 class="font-display font-extrabold text-ink-900">Trụ sở chính</h3>
+        <ul class="mt-2 space-y-2 text-sm text-ink-700">
+          <li class="flex gap-2"><span class="text-primary-600 mt-0.5"><i data-ic="pin"></i></span>Tầng 12, Toà nhà Sunrise, 123 Nguyễn Huệ, Q.1, TP.HCM</li>
+          <li class="flex gap-2"><span class="text-primary-600 mt-0.5"><i data-ic="phone"></i></span>1900 247 247 (miễn phí)</li>
+          <li class="flex gap-2"><span class="text-primary-600 mt-0.5"><i data-ic="mail"></i></span>hotro@nhadat247.vn</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl ring-1 ring-slate-200 p-5 shadow-soft">
+      <h3 class="font-display font-extrabold text-ink-900">Chi nhánh khu vực</h3>
+      <div class="mt-3 space-y-3 text-sm">
+        <div class="flex gap-3 items-start">
+          <div class="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 grid place-items-center shrink-0 font-bold">HN</div>
+          <div><div class="font-semibold text-ink-900">Chi nhánh Hà Nội</div><div class="text-ink-500">Tầng 8, Vincom Center, 54 Liễu Giai, Ba Đình · 024 7300 2468</div></div>
+        </div>
+        <div class="flex gap-3 items-start">
+          <div class="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 grid place-items-center shrink-0 font-bold">ĐN</div>
+          <div><div class="font-semibold text-ink-900">Chi nhánh Đà Nẵng</div><div class="text-ink-500">123 Nguyễn Văn Linh, Hải Châu · 0236 7300 247</div></div>
+        </div>
+        <div class="flex gap-3 items-start">
+          <div class="w-10 h-10 rounded-lg bg-primary-50 text-primary-600 grid place-items-center shrink-0 font-bold">CT</div>
+          <div><div class="font-semibold text-ink-900">Chi nhánh Cần Thơ</div><div class="text-ink-500">45 Nguyễn Trãi, Ninh Kiều · 0292 7300 247</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+  <div class="text-center">
+    <div class="text-primary-600 text-xs font-bold uppercase tracking-wider">FAQ</div>
+    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-ink-900 mt-1">Câu hỏi thường gặp</h2>
+  </div>
+  <div class="mt-8 space-y-3" id="faq"></div>
+</section>
+
+<div id="app-footer"></div>
+<div id="app-mobilenav"></div>
+
+<script>
+mountShared({ active: 'contact' });
+
+const faqs = [
+  { q:'Đăng tin trên Nhadat247 có mất phí không?', a:'Tin thường được đăng miễn phí với thời gian hiển thị 15 ngày. Bạn có thể nâng cấp lên gói VIP Silver/Gold/Diamond để tăng lượt xem lên đến 9 lần và ưu tiên hiển thị ở trang chủ.' },
+  { q:'Tin đăng của tôi được duyệt trong bao lâu?', a:'Tin đăng sẽ được hệ thống xét duyệt tự động và đội ngũ kiểm duyệt viên trong vòng 30 phút kể từ khi gửi, hoạt động từ 7:00 đến 23:00 hằng ngày.' },
+  { q:'Làm thế nào để xác thực chủ nhà / môi giới?', a:'Truy cập mục "Cài đặt tài khoản → Xác thực" và tải lên CCCD mặt trước, mặt sau, ảnh selfie. Thông thường xác thực hoàn tất trong 1 giờ.' },
+  { q:'Tôi có thể rút tiền từ ví quảng cáo không?', a:'Số dư nạp vào ví quảng cáo được dùng để mua các dịch vụ đẩy tin, VIP, banner. Bạn có thể yêu cầu hoàn tiền trong vòng 30 ngày nếu chưa sử dụng.' },
+  { q:'Nhadat247 có hỗ trợ ký gửi bán nhà không?', a:'Có. Đội ngũ chuyên viên cao cấp của chúng tôi có thể ký hợp đồng môi giới độc quyền với phí 1–2% giá trị giao dịch. Liên hệ hotline 1900 247 247 để được tư vấn.' },
+];
+document.getElementById('faq').innerHTML = faqs.map((f,i)=>`
+  <details class="group bg-white ring-1 ring-slate-200 rounded-2xl open:ring-primary-300 open:shadow-soft transition" ${i===0?'open':''}>
+    <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+      <span class="font-semibold text-ink-900">${f.q}</span>
+      <span class="w-8 h-8 rounded-full bg-slate-100 group-open:bg-primary-600 group-open:text-white text-ink-500 grid place-items-center transition">
+        <svg class="w-4 h-4 group-open:rotate-180 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </span>
+    </summary>
+    <div class="px-5 pb-5 text-sm text-ink-600 leading-relaxed">${f.a}</div>
+  </details>`).join('');
+</script>
+</body>
+</html>

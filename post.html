@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#e11d2a" />
+<title>Đăng tin bất động sản — Nhadat247.vn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="assets/shared.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=line-clamp,forms"></script>
+<style type="text/tailwindcss">
+  input[type=text], input[type=email], input[type=tel], input[type=number], select, textarea {
+    @apply w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-sm outline-none transition focus:ring-2 focus:ring-primary-200 focus:border-primary-400;
+  }
+  .label{ @apply block text-sm font-semibold text-ink-800 mb-1.5; }
+  .label-sub{ @apply block text-xs text-ink-500 mt-1; }
+  .step-active .step-dot{ @apply bg-primary-600 text-white ring-primary-100 !important; }
+  .step-done .step-dot{ @apply bg-emerald-500 text-white !important; }
+</style>
+</head>
+<body class="font-sans bg-slate-50/60 text-ink-800 antialiased">
+
+<div id="app-header"></div>
+
+<section class="bg-gradient-to-br from-primary-50 via-white to-white border-b border-primary-100/60">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    <div class="flex items-center gap-2 text-xs text-ink-500"><a href="index.html" class="hover:text-primary-600">Trang chủ</a><span>›</span><span class="text-ink-800 font-medium">Đăng tin</span></div>
+    <h1 class="mt-2 font-display font-extrabold text-3xl sm:text-4xl text-ink-900">Đăng tin bất động sản miễn phí</h1>
+    <p class="text-ink-600 mt-1">Tin đăng được duyệt trong vòng 30 phút. Hiển thị trước hàng triệu khách hàng tiềm năng.</p>
+
+    <!-- Stepper -->
+    <div class="mt-6 bg-white rounded-2xl p-4 ring-1 ring-slate-200 shadow-soft">
+      <div class="grid grid-cols-5 gap-2">
+        <div class="step step-done flex flex-col items-center">
+          <div class="step-dot w-8 h-8 rounded-full grid place-items-center font-bold text-xs ring-4 ring-emerald-50">1</div>
+          <div class="mt-1.5 text-[11px] sm:text-xs font-semibold text-emerald-600">Loại tin</div>
+        </div>
+        <div class="step step-active flex flex-col items-center">
+          <div class="step-dot w-8 h-8 rounded-full bg-slate-200 text-ink-500 grid place-items-center font-bold text-xs ring-4 ring-slate-100">2</div>
+          <div class="mt-1.5 text-[11px] sm:text-xs font-semibold text-primary-700">Thông tin</div>
+        </div>
+        <div class="step flex flex-col items-center">
+          <div class="step-dot w-8 h-8 rounded-full bg-slate-200 text-ink-500 grid place-items-center font-bold text-xs ring-4 ring-slate-100">3</div>
+          <div class="mt-1.5 text-[11px] sm:text-xs font-medium text-ink-500">Địa chỉ</div>
+        </div>
+        <div class="step flex flex-col items-center">
+          <div class="step-dot w-8 h-8 rounded-full bg-slate-200 text-ink-500 grid place-items-center font-bold text-xs ring-4 ring-slate-100">4</div>
+          <div class="mt-1.5 text-[11px] sm:text-xs font-medium text-ink-500">Hình ảnh</div>
+        </div>
+        <div class="step flex flex-col items-center">
+          <div class="step-dot w-8 h-8 rounded-full bg-slate-200 text-ink-500 grid place-items-center font-bold text-xs ring-4 ring-slate-100">5</div>
+          <div class="mt-1.5 text-[11px] sm:text-xs font-medium text-ink-500">Xem trước</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="grid lg:grid-cols-3 gap-6">
+
+    <form class="lg:col-span-2 space-y-5">
+
+      <!-- Loại tin -->
+      <div class="bg-white rounded-2xl ring-1 ring-slate-200 shadow-soft p-5 sm:p-6">
+        <h2 class="font-display font-extrabold text-lg text-ink-900">1. Loại tin đăng</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
+          <label class="cursor-pointer">
+            <input type="radio" name="purpose" class="peer sr-only" checked/>
+            <div class="p-4 rounded-xl ring-1 ring-slate-200 text-center text-sm font-semibold peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700">Tôi cần bán</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="purpose" class="peer sr-only"/>
+            <div class="p-4 rounded-xl ring-1 ring-slate-200 text-center text-sm font-semibold peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700">Tôi cho thuê</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="purpose" class="peer sr-only"/>
+            <div class="p-4 rounded-xl ring-1 ring-slate-200 text-center text-sm font-semibold peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700">Cần mua</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="purpose" class="peer sr-only"/>
+            <div class="p-4 rounded-xl ring-1 ring-slate-200 text-center text-sm font-semibold peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700">Cần thuê</div>
+          </label>
+        </div>
+
+        <div class="mt-4">
+          <label class="label">Loại bất động sản</label>
+          <select>
+            <option>Chọn loại BĐS</option>
+            <option>Căn hộ chung cư</option>
+            <option>Nhà riêng</option>
+            <option>Nhà phố, liền kề</option>
+            <option>Biệt thự</option>
+            <option>Đất nền, đất thổ cư</option>
+            <option>Shophouse</option>
+            <option>Văn phòng cho thuê</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Thông tin -->
+      <div class="bg-white rounded-2xl ring-1 ring-slate-200 shadow-soft p-5 sm:p-6">
+        <h2 class="font-display font-extrabold text-lg text-ink-900">2. Thông tin chính</h2>
+
+        <div class="mt-4 grid sm:grid-cols-2 gap-4">
+          <div class="sm:col-span-2">
+            <label class="label">Tiêu đề tin đăng <span class="text-primary-600">*</span></label>
+            <input placeholder="VD: Căn hộ 2PN view sông Saigon Pearl, full nội thất"/>
+            <div class="flex justify-between mt-1 text-xs text-ink-500"><span>Tối thiểu 30 ký tự, tối đa 120</span><span>0/120</span></div>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="label">Mô tả chi tiết <span class="text-primary-600">*</span></label>
+            <textarea rows="6" placeholder="Mô tả đầy đủ về BĐS: vị trí, diện tích, hướng, nội thất, tiện ích..."></textarea>
+          </div>
+
+          <div>
+            <label class="label">Diện tích (m²) <span class="text-primary-600">*</span></label>
+            <input type="number" placeholder="78"/>
+          </div>
+          <div>
+            <label class="label">Mức giá <span class="text-primary-600">*</span></label>
+            <div class="flex gap-2">
+              <input type="number" placeholder="6.8" class="flex-1"/>
+              <select class="!w-32">
+                <option>Tỷ</option><option>Triệu</option><option>Triệu/tháng</option><option>Thoả thuận</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="label">Số phòng ngủ</label>
+            <select><option>Chưa rõ</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
+          </div>
+          <div>
+            <label class="label">Số toilet</label>
+            <select><option>Chưa rõ</option><option>1</option><option>2</option><option>3</option><option>4+</option></select>
+          </div>
+          <div>
+            <label class="label">Hướng nhà</label>
+            <select><option>Chưa rõ</option><option>Đông</option><option>Tây</option><option>Nam</option><option>Bắc</option><option>Đông Bắc</option><option>Đông Nam</option><option>Tây Bắc</option><option>Tây Nam</option></select>
+          </div>
+          <div>
+            <label class="label">Tình trạng pháp lý</label>
+            <select><option>Sổ đỏ/hồng</option><option>Hợp đồng mua bán</option><option>Đang chờ sổ</option><option>Khác</option></select>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="label">Tình trạng nội thất</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <label class="cursor-pointer"><input type="radio" name="ntt" class="peer sr-only" checked/><div class="p-3 rounded-xl ring-1 ring-slate-200 text-center text-sm peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700 peer-checked:font-semibold">Đầy đủ</div></label>
+              <label class="cursor-pointer"><input type="radio" name="ntt" class="peer sr-only"/><div class="p-3 rounded-xl ring-1 ring-slate-200 text-center text-sm peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700 peer-checked:font-semibold">Cơ bản</div></label>
+              <label class="cursor-pointer"><input type="radio" name="ntt" class="peer sr-only"/><div class="p-3 rounded-xl ring-1 ring-slate-200 text-center text-sm peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700 peer-checked:font-semibold">Cao cấp</div></label>
+              <label class="cursor-pointer"><input type="radio" name="ntt" class="peer sr-only"/><div class="p-3 rounded-xl ring-1 ring-slate-200 text-center text-sm peer-checked:ring-2 peer-checked:ring-primary-500 peer-checked:bg-primary-50 peer-checked:text-primary-700 peer-checked:font-semibold">Không nội thất</div></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Địa chỉ -->
+      <div class="bg-white rounded-2xl ring-1 ring-slate-200 shadow-soft p-5 sm:p-6">
+        <h2 class="font-display font-extrabold text-lg text-ink-900">3. Địa chỉ bất động sản</h2>
+        <div class="mt-4 grid sm:grid-cols-2 gap-4">
+          <div><label class="label">Tỉnh / Thành phố <span class="text-primary-600">*</span></label><select><option>TP. Hồ Chí Minh</option><option>Hà Nội</option><option>Đà Nẵng</option></select></div>
+          <div><label class="label">Quận / Huyện <span class="text-primary-600">*</span></label><select><option>Quận Bình Thạnh</option><option>Quận 1</option><option>Quận 2</option></select></div>
+          <div><label class="label">Phường / Xã</label><select><option>Phường 22</option></select></div>
+          <div><label class="label">Đường / Phố</label><input placeholder="Nguyễn Hữu Cảnh"/></div>
+          <div class="sm:col-span-2"><label class="label">Số nhà (không hiển thị công khai)</label><input placeholder="92"/><p class="label-sub">Chỉ dùng để xác thực, khách sẽ chỉ thấy đến cấp đường.</p></div>
+        </div>
+      </div>
+
+      <!-- Hình ảnh -->
+      <div class="bg-white rounded-2xl ring-1 ring-slate-200 shadow-soft p-5 sm:p-6">
+        <h2 class="font-display font-extrabold text-lg text-ink-900">4. Hình ảnh &amp; Video</h2>
+        <p class="text-sm text-ink-500 mt-1">Tối đa 24 ảnh, mỗi ảnh ≤ 10MB. Ảnh đầu tiên sẽ là ảnh đại diện.</p>
+        <label class="mt-4 block rounded-2xl border-2 border-dashed border-primary-200 bg-primary-50/50 hover:bg-primary-50 p-8 text-center cursor-pointer">
+          <input type="file" accept="image/*" multiple class="hidden"/>
+          <div class="mx-auto w-12 h-12 rounded-xl bg-primary-100 text-primary-600 grid place-items-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+          </div>
+          <div class="mt-2 font-semibold text-primary-700">Kéo thả ảnh vào đây hoặc bấm để chọn</div>
+          <div class="text-xs text-ink-500 mt-0.5">PNG, JPG, WEBP · tối đa 24 ảnh</div>
+        </label>
+        <div id="upload-previews" class="mt-3 grid grid-cols-3 sm:grid-cols-4 gap-3"></div>
+
+        <div class="mt-5">
+          <label class="label">Link video YouTube (tuỳ chọn)</label>
+          <input placeholder="https://youtube.com/watch?v=..."/>
+        </div>
+      </div>
+
+      <!-- Liên hệ -->
+      <div class="bg-white rounded-2xl ring-1 ring-slate-200 shadow-soft p-5 sm:p-6">
+        <h2 class="font-display font-extrabold text-lg text-ink-900">5. Thông tin liên hệ</h2>
+        <div class="mt-4 grid sm:grid-cols-2 gap-4">
+          <div><label class="label">Họ và tên</label><input value="Quynh Ken"/></div>
+          <div><label class="label">Số điện thoại</label><input value="0901234567"/></div>
+          <div><label class="label">Email</label><input value="quynhkencv@gmail.com"/></div>
+          <div><label class="label">Hình thức đăng</label>
+            <select><option>Tin thường — Miễn phí (hiển thị 15 ngày)</option><option>Tin VIP Silver — 50.000đ/ngày</option><option>Tin VIP Gold — 120.000đ/ngày</option><option>Tin VIP Diamond — 250.000đ/ngày</option></select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="sticky bottom-20 lg:bottom-4 bg-white/90 backdrop-blur ring-1 ring-slate-200 rounded-2xl p-3 flex items-center gap-3 shadow-pop">
+        <label class="flex items-center gap-2 text-xs text-ink-600 flex-1"><input type="checkbox" class="rounded text-primary-600" checked/> Tôi đồng ý với <a href="#" class="text-primary-600 font-semibold">quy định đăng tin</a></label>
+        <button type="button" class="px-4 py-2.5 rounded-xl ring-1 ring-slate-300 text-ink-700 font-semibold hover:bg-slate-50 hidden sm:inline">Lưu nháp</button>
+        <button class="px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold shadow-pop">Đăng tin ngay →</button>
+      </div>
+    </form>
+
+    <!-- Sidebar tips -->
+    <aside class="space-y-4">
+      <div class="bg-white rounded-2xl ring-1 ring-slate-200 p-5 sticky top-20">
+        <div class="flex items-center gap-2">
+          <span class="w-9 h-9 rounded-lg bg-primary-50 text-primary-600 grid place-items-center"><i data-ic="zap"></i></span>
+          <h3 class="font-display font-extrabold text-ink-900">Mẹo đăng tin hiệu quả</h3>
+        </div>
+        <ul class="mt-3 text-sm text-ink-700 space-y-2.5">
+          <li class="flex gap-2"><span class="text-emerald-500 shrink-0"><i data-ic="check"></i></span>Tiêu đề rõ ràng, có tên đường &amp; loại BĐS</li>
+          <li class="flex gap-2"><span class="text-emerald-500 shrink-0"><i data-ic="check"></i></span>Mô tả ít nhất 300 ký tự, nêu bật ưu điểm</li>
+          <li class="flex gap-2"><span class="text-emerald-500 shrink-0"><i data-ic="check"></i></span>Đăng ít nhất 5 ảnh thật, chụp ngang, đủ sáng</li>
+          <li class="flex gap-2"><span class="text-emerald-500 shrink-0"><i data-ic="check"></i></span>Cập nhật giá &amp; tình trạng thường xuyên</li>
+        </ul>
+        <div class="mt-4 p-4 rounded-xl bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+          <div class="text-xs opacity-90 font-semibold uppercase tracking-wider">Gói VIP</div>
+          <div class="font-display font-extrabold text-xl mt-1">Tăng 9× lượt xem</div>
+          <div class="text-xs opacity-90 mt-1">Ưu tiên hiển thị top trang chủ &amp; kết quả tìm kiếm</div>
+          <button class="mt-3 w-full py-2 rounded-lg bg-white text-primary-700 font-semibold text-sm">Xem bảng giá VIP →</button>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<div id="app-footer"></div>
+<div id="app-mobilenav"></div>
+
+<script>
+mountShared({ active: 'home' });
+// sample upload previews
+document.getElementById('upload-previews').innerHTML = [1,2,3,4].map(i => `
+  <div class="relative aspect-square rounded-xl overflow-hidden ring-1 ring-slate-200">
+    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&auto=format&fit=crop&seq=${i}" class="w-full h-full object-cover"/>
+    ${i===1?'<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-primary-600 text-white text-[10px] font-bold">Ảnh chính</span>':''}
+    <button class="absolute top-1.5 right-1.5 w-7 h-7 rounded-full bg-black/60 text-white grid place-items-center hover:bg-primary-600">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>`).join('');
+</script>
+</body>
+</html>
